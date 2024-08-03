@@ -87,7 +87,7 @@ import { setFilter } from './redux/filtersSlice';
 export const App = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.tasks.contacts.items);
-  const filterStatus = useSelector(state => state.tasks.filter);
+  const filterStatus = useSelector(state => state.filter); // Asegúrate de usar `state.filter`
   const isLoading = useSelector(state => state.tasks.contacts.isLoading);
   const error = useSelector(state => state.tasks.contacts.error);
 
@@ -112,7 +112,6 @@ export const App = () => {
     if (event && event.target) {
       dispatch(setFilter(event.target.value));
     } else {
-      console.error('El evento no tiene un target definido');
     }
   };
 
